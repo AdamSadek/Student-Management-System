@@ -1,4 +1,4 @@
-package Project;
+package Project_1;
 
 import java.util.Scanner;
 
@@ -29,18 +29,25 @@ public class userID {
         if ((Enroll.names.containsKey(getUserID())) && Fees.fees.get(getUserID()) != 0) {
             int fee = Fees.fees.get(getUserID());
             System.out.println("Amount due " + "$" + fee);
+            System.out.print("How much would you like to pay?: ");
+            String amountToPay = input.next();
             while (true) {
-                System.out.print("How much would you like to pay?: ");
-                if ((!(input.hasNextInt())) && (input.nextInt() > fee || input.nextInt() < 0)) {
-                    System.out.print("Please enter a valid amount: ");
-                    input.next();
-                } else if (Fees.fees.get(getUserID()) == 0) {
-                    System.out.println("You have already paid your fees");
+                if (amountToPay.matches("[a-zA-Z]+") || amountToPay.matches("\\p{Punct}")){
+                    System.out.print("Please enter an integer: ");
+                    amountToPay = input.next();
                 }
-                int userAmount = input.nextInt();
-                Fees.fees.replace(getUserID(), fee - userAmount);
-                System.out.println("Amount due now is: " + "$" + (fee - userAmount));
-                return fee - userAmount;
+                else if ((Integer.parseInt(amountToPay) > fee || Integer.parseInt(amountToPay) < 0)) {
+                    System.out.print("Please enter a valid amount: ");
+                    amountToPay = input.next();
+                }
+                else if (Fees.fees.get(getUserID()) == 0) {
+                     System.out.println("You have already paid your fees");
+                }else{
+                    Fees.fees.replace(getUserID(), fee - Integer.parseInt(amountToPay));
+                    System.out.println("Amount due now is: " + "$" + (fee - Integer.parseInt(amountToPay)));
+                    return fee - Integer.parseInt(amountToPay);
+                }
+
             }
         }
         else {

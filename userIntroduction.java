@@ -1,4 +1,4 @@
-package Project;
+package Project_1;
 
 public class userIntroduction {
     public static void intro(){

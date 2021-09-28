@@ -1,4 +1,4 @@
-package Project;
+package Project_1;
 
 import java.util.Scanner;
 
@@ -43,5 +43,6 @@ public class Main {
             System.out.println();
             userIntroduction.choices();
         }
+
     }
 }
