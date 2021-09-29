@@ -1,13 +1,12 @@
-package Project_1;
+package Project;
 
 import java.util.HashMap;
-
 
 public class Fees {
     public static HashMap<Integer, Integer> fees = new HashMap<>();
     public static void payment() {
         userID.askAmountToPay();
-    }
+        }
     public static boolean isNull(){
         return Fees.fees.get(userID.getUserID()) == null;
     }
@@ -22,5 +21,7 @@ public class Fees {
                 break;
             }
         }
+        }
     }
-}
+
+

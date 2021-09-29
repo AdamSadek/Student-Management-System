@@ -1,28 +1,33 @@
-package Project_1;
+package Project;
 
 import java.util.Scanner;
 
-
-
 public class errorChecks {
-    public static int validInteger(){
+    public static int validIntegerCourses() {
         Scanner input = new Scanner(System.in);
-        String user_choice = input.next();
-        while(true){
-            if(user_choice.matches("[a-zA-Z]+") || user_choice.matches("\\p{Punct}")){
+        int user_choice;
+        while (true) {
+            if (!input.hasNextInt()) {
                 System.out.print("Please enter an Integer: ");
-                user_choice = input.next();
-            }
+                input.next();
+            }else break;
+        }
+        return input.nextInt();
+    }
 
-            else if(Integer.parseInt(user_choice) < 1 || Integer.parseInt(user_choice)  > 7){
-                System.out.print("Please enter a valid integer(1-7): ");
-                user_choice = input.next();
+
+
+    public static int validId(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter ID: ");
+        while(true){
+            if(!input.hasNextInt()){
+                System.out.print("Please enter a valid ID: ");
+                input.next();
             }
             else{
-                return Integer.parseInt(user_choice);
+                return input.nextInt();
             }
         }
-
-
     }
 }

@@ -1,6 +1,7 @@
-package Project_1;
+package Project;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Enroll {
     private static HashMap<Integer, String> courses = new HashMap<>();
@@ -17,10 +18,11 @@ public class Enroll {
         fullName = fullName.toLowerCase();
         System.out.println("Hello " + fullName + "! your ID number is: " + (iD + 1) + "\n");
         names.putIfAbsent(++iD, fullName);
+
     }
     public static void setClasses(){
         userIntroduction.listOfCourses();
-        int userChoice = errorChecks.validInteger();
+        int userChoice = errorChecks.validIntegerCourses();
         switch (userChoice){
             case 1:
                 courses.put(iD, "English Literature");
@@ -64,6 +66,5 @@ public class Enroll {
         System.out.println("Courses: " + courses.toString());
         System.out.println("Fees: " + Fees.fees.toString());
     }
-
 
 }
