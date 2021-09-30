@@ -5,9 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // fees payment - international fees, domestic fees - credit card details.!!
-        // show performance details -  show users grades.
-        // view balance, etc. - views balance left to pay.
         Scanner input = new Scanner(System.in);
         userIntroduction.intro();
 
@@ -25,10 +22,12 @@ public class Main {
                 case 1:
                     Enroll.setName();
                     Enroll.setClasses();
-
                     break;
                 case 2:
                     Fees.payment();
+                    break;
+                case 3:
+                    Grades.currentGrades();
                     break;
                 case 4:
                     Fees.viewBalance();
